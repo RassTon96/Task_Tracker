@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        InMemoryTaskManager manager = new InMemoryTaskManager();
 
         // Создаём обычные задачи
         Task task1 = new Task("Магазин", "Купить хлеб", "NEW");
