@@ -1,3 +1,7 @@
+import exception.EpicNotFoundException;
+import exception.SubtaskNotFoundException;
+import exception.TaskNotFoundException;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +13,8 @@ public class InMemoryTaskManager implements TaskManager {
     Map<Integer, Task> tasks = new HashMap<>();
     Map<Integer, Subtask> subtasks = new HashMap<>();
     Map<Integer, Epic> epics = new HashMap<>();
+
+    List<Task> historyTasks = new ArrayList<>();
 
     @Override
     public void createTask(Task task) {
@@ -60,21 +66,34 @@ public class InMemoryTaskManager implements TaskManager {
                 System.out.println("ID: " + epic.id + " Имя: " + epic.name + " Статус: " + epic.status);
             }
         }
+        System.out.println();
     }
 
     @Override
     public Task getTaskById(int id) {
-        return tasks.get(id);
+        if (tasks.get(id) != null) {
+            addHistory(tasks.get(id));
+            return tasks.get(id);
+        }
+        throw new TaskNotFoundException("Task with id " + id + " not found");
     }
 
     @Override
     public Subtask getSubtaskById(int id) {
-        return subtasks.get(id);
+        if (subtasks.get(id) != null) {
+            addHistory(subtasks.get(id));
+            return subtasks.get(id);
+        }
+        throw new SubtaskNotFoundException("Subtask with id " + id + " not found");
     }
 
     @Override
     public Epic getEpicById(int id) {
-        return epics.get(id);
+        if (epics.get(id) != null) {
+            addHistory(epics.get(id));
+            return epics.get(id);
+        }
+        throw new EpicNotFoundException("Epic with id " + id + " not found");
     }
 
     @Override
@@ -100,10 +119,18 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public List<Task> getHistory(){
-        List<Task> history = new ArrayList<>();
+    public List<Task> getHistory() {
+        return historyTasks;
+    }
 
-        return history;
+    @Override
+    public void addHistory(Task task) {
+        if (historyTasks.size() != 10) {
+            historyTasks.add(task);
+        } else {
+            historyTasks.removeFirst();
+            historyTasks.add(task);
+        }
     }
 
     ArrayList<Subtask> getSubtasksOfEpic(int epicId) {

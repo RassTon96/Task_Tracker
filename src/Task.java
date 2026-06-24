@@ -9,4 +9,14 @@ public class Task {
         this.description = description;
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

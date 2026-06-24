@@ -6,4 +6,15 @@ public class Subtask extends Task {
         super(name, description, status);
         this.epicId = epicId;
     }
+
+    @Override
+    public String toString() {
+        return "Subtask{" +
+                "epicId=" + epicId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
