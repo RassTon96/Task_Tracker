@@ -141,27 +141,29 @@ public class InMemoryTaskManager implements TaskManager {
         return result;
     }
 
-    void updateTask(Task task) {
+    @Override
+    public void updateTask(Task task) {
         if (tasks.containsKey(task.id)) {
             tasks.put(task.id, task);
         }
 
     }
 
-    void updateSubtask(Subtask subtask) {
+    @Override
+    public void updateSubtask(Subtask subtask) {
         if (subtasks.containsKey(subtask.id)) {
             subtasks.put(subtask.id, subtask);
             updateEpicStatus(subtask.epicId);
         }
     }
 
-    void updateEpicStatus(int epicId) {
+    private void updateEpicStatus(int epicId) {
         Epic epic = epics.get(epicId);
         if (epic == null) return;
 
         ArrayList<Subtask> epicsSubtasks = getSubtasksOfEpic(epicId);
         if (epicsSubtasks.isEmpty()) {
-            epic.status = "NEW";
+            epic.status = Task.Status.NEW;
             return;
         }
 
@@ -169,12 +171,12 @@ public class InMemoryTaskManager implements TaskManager {
         boolean allDone = true;
 
         for (Subtask subtask : epicsSubtasks) {
-            if (!subtask.status.equals("NEW")) allNew = false;
-            if (!subtask.status.equals("DONE")) allDone = false;
+            if (!Task.Status.NEW.equals(subtask.status)) allNew = false;
+            if (!Task.Status.DONE.equals(subtask.status)) allDone = false;
         }
 
-        if (allNew) epic.status = "NEW";
-        else if (allDone) epic.status = "DONE";
-        else epic.status = "IN_PROGRESS";
+        if (allNew) epic.status = Task.Status.NEW;
+        else if (allDone) epic.status = Task.Status.DONE;
+        else epic.status = Task.Status.IN_PROGRESS;
     }
 }

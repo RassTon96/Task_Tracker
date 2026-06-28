@@ -27,4 +27,8 @@ public interface TaskManager {
     List<Task> getHistory();
 
     void addHistory(Task task);
+
+    void updateTask(Task task);
+
+    void updateSubtask(Subtask subtask);
 }
