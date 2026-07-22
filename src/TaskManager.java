@@ -1,5 +1,3 @@
-import java.util.List;
-
 public interface TaskManager {
 
     void createTask(Task task);
@@ -23,10 +21,6 @@ public interface TaskManager {
     void deleteSubtaskById(int id);
 
     void deleteEpicById(int id);
-
-    List<Task> getHistory();
-
-    void addHistory(Task task);
 
     void updateTask(Task task);
 

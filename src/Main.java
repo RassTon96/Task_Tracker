@@ -3,7 +3,7 @@ public class Main {
         TaskManager manager = Managers.getDefault();
 
         // Создаём обычные задачи
-        Task task1 = new Task("Магазин", "Купить хлеб", Task.Status.NEW);
+        Task task1 = new Task("Магазин", "Купить хлеб");
         Task task2 = new Task("Досуг", "Посмотреть новое кино", Task.Status.NEW);
         Task task3 = new Task("Занятия", "Посмотреть запись лекции", Task.Status.NEW);
         Task task4 = new Task("Спорт", "Пробежать 5 километров", Task.Status.NEW);
