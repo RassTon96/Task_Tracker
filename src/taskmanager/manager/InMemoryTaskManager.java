@@ -253,4 +253,9 @@ public class InMemoryTaskManager implements TaskManager {
         else if (allDone) epic.setStatus(Task.Status.DONE);
         else epic.setStatus(Task.Status.IN_PROGRESS);
     }
+
+    @Override
+    public List<Task> getHistory() {
+        return historyManager.getHistory();
+    }
 }

@@ -10,8 +10,7 @@ import taskmanager.util.Managers;
 
 public class Main {
     public static void main(String[] args) {
-        HistoryManager historyManager = Managers.getDefaultHistory();
-        TaskManager manager = new InMemoryTaskManager(historyManager);
+        TaskManager manager = Managers.getDefault();
         // Создание обычных задач
         Task task1 = new Task("Магазин", "Купить хлеб");
         Task task2 = new Task("Досуг", "Посмотреть новое кино");
@@ -109,6 +108,6 @@ public class Main {
                 "\n" + manager.getEpicById(5) + manager.getEpicById(6));
 
         System.out.println("Вызов метода истории просмотра:"
-                + "\n" + historyManager.getHistory());
+                + "\n" + manager.getHistory());
     }
 }
