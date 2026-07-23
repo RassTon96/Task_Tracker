@@ -6,8 +6,8 @@ public class Task {
         IN_PROGRESS
     }
     private int id;
-    private final String name;
-    private final String description;
+    private String name;
+    private String description;
     private Status status;
 
     public Task(String name, String description) {
@@ -16,28 +16,36 @@ public class Task {
         this.status = Status.NEW;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
     }
 
-    public Status getStatus() {
-        return status;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public String getName() {
-        return name;
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override
@@ -47,6 +55,6 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
                 ", id=" + id +
-                '}';
+                '}' + "\n";
     }
 }
