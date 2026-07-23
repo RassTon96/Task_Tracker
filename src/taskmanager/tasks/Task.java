@@ -1,3 +1,5 @@
+package taskmanager.tasks;
+
 public class Task {
 
     public enum Status {
@@ -50,7 +52,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "taskmanager.tasks.Task{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +

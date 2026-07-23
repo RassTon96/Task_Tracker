@@ -1,3 +1,10 @@
+package taskmanager.util;
+
+import taskmanager.history.HistoryManager;
+import taskmanager.history.InMemoryHistoryManager;
+import taskmanager.manager.InMemoryTaskManager;
+import taskmanager.manager.TaskManager;
+
 public class Managers {
     private Managers() {
     }

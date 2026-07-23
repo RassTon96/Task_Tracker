@@ -1,6 +1,12 @@
-import exceptions.EpicNotFoundException;
-import exceptions.SubtaskNotFoundException;
-import exceptions.TaskNotFoundException;
+package taskmanager.manager;
+
+import taskmanager.exceptions.EpicNotFoundException;
+import taskmanager.exceptions.SubtaskNotFoundException;
+import taskmanager.exceptions.TaskNotFoundException;
+import taskmanager.history.HistoryManager;
+import taskmanager.tasks.Epic;
+import taskmanager.tasks.Subtask;
+import taskmanager.tasks.Task;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -91,7 +97,7 @@ public class InMemoryTaskManager implements TaskManager {
             historyManager.addHistory(task);
             return task;
         }
-        throw new TaskNotFoundException("Task with id " + id + " not found");
+        throw new TaskNotFoundException("taskmanager.tasks.Task with id " + id + " not found");
     }
 
     @Override
@@ -101,7 +107,7 @@ public class InMemoryTaskManager implements TaskManager {
             historyManager.addHistory(subtask);
             return subtask;
         }
-        throw new SubtaskNotFoundException("Subtask with id " + id + " not found");
+        throw new SubtaskNotFoundException("taskmanager.tasks.Subtask with id " + id + " not found");
     }
 
     @Override
@@ -111,7 +117,7 @@ public class InMemoryTaskManager implements TaskManager {
             historyManager.addHistory(epic);
             return epic;
         }
-        throw new EpicNotFoundException("Epic with id " + id + " not found");
+        throw new EpicNotFoundException("taskmanager.tasks.Epic with id " + id + " not found");
     }
 
     @Override

@@ -1,3 +1,13 @@
+package taskmanager;
+
+import taskmanager.history.HistoryManager;
+import taskmanager.manager.InMemoryTaskManager;
+import taskmanager.manager.TaskManager;
+import taskmanager.tasks.Epic;
+import taskmanager.tasks.Subtask;
+import taskmanager.tasks.Task;
+import taskmanager.util.Managers;
+
 public class Main {
     public static void main(String[] args) {
         HistoryManager historyManager = Managers.getDefaultHistory();

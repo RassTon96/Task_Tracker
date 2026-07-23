@@ -1,3 +1,7 @@
+package taskmanager.history;
+
+import taskmanager.tasks.Task;
+
 import java.util.LinkedList;
 import java.util.List;
 

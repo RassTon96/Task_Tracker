@@ -1,4 +1,4 @@
-package exceptions;
+package taskmanager.exceptions;
 
 public class SubtaskNotFoundException extends RuntimeException {
     public SubtaskNotFoundException(String message) {

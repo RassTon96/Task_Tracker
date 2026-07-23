@@ -1,3 +1,5 @@
+package taskmanager.tasks;
+
 public class Epic extends Task {
 
     public Epic(String name, String description) {
@@ -6,7 +8,7 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return "Epic{" +
+        return "taskmanager.tasks.Epic{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", status='" + getStatus() + '\'' +

@@ -1,4 +1,4 @@
-package exceptions;
+package taskmanager.exceptions;
 
 public class EpicNotFoundException extends RuntimeException {
     public EpicNotFoundException(String message) {
